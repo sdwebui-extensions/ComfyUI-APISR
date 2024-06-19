@@ -9,6 +9,8 @@ from .test_code.test_utils import load_grl, load_rrdb, load_cunet
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 folder_paths.folder_names_and_paths["apisr"] = ([os.path.join(folder_paths.models_dir, "apisr")], folder_paths.supported_pt_extensions)
+if os.path.exists("/stable-diffusion-cache/models"):
+    folder_paths.add_model_folder_path('apisr', '/stable-diffusion-cache/models/apisr')
 
 
 def tensor2pil(image):
